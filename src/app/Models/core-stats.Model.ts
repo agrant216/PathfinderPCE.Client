@@ -30,6 +30,7 @@ export interface SavingThrows {
     Fortitude: Save;
     Reflex: Save;
     Will: Save;
+    Modifiers: Array<Modifer>
 }
 
 export interface AbilityScore {

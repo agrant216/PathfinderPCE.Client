@@ -1,4 +1,4 @@
-import { AbilityScores, ArmorClass, Health, Skills } from "./core-stats.Model";
+import { AbilityScores, ArmorClass, Health, Skills } from "./core-stats.model";
 
 export interface PlayerCharacter {
     id: string;
