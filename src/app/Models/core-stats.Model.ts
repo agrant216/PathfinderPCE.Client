@@ -1,72 +1,73 @@
 import { Modifer } from "./modifier.model";
 
+
 export interface ArmorClass {
-    Base: number;
-    ArmorBonus: number;
-    ShieldBonus: number;
-    StatBonus: number;
-    SizeBonus: number;
-    NaturalArmor: number;
-    DodgeBonus: number;
-    DeflectionBonus: number;
-    MiscBonus: number;
-    Modifiers: Array<Modifer>;
+    base: number;
+    armorBonus: number;
+    shieldBonus: number;
+    statBonus: number;
+    sizeBonus: number;
+    naturalArmor: number;
+    dodgeBonus: number;
+    deflectionBonus: number;
+    miscBonus: number;
+    modifiers: Array<Modifer>;
 }
 
 export interface Health {
-    Total: number;
-    Wounds: number;
-    NonLethal: number;
+    total: number;
+    wounds: number;
+    nonLethal: number;
 }
 
 export interface Save {
-    TotalValue: number;
-    BaseValue: number;
-    AbilityValue: number;
-    ModValue: number;
+    totalValue: number;
+    baseValue: number;
+    abilityValue: number;
+    modValue: number;
 }
 
 export interface SavingThrows {
-    Fortitude: Save;
-    Reflex: Save;
-    Will: Save;
-    Modifiers: Array<Modifer>
+    fortitude: Save;
+    reflex: Save;
+    will: Save;
+    modifiers: Array<Modifer>
 }
 
 export interface AbilityScore {
-    BaseValue: number;
-    TempValue: number;
-    readonly ModValue: number;
+    baseValue: number;
+    tempValue: number;
+    readonly modValue: number;
 }
 
 export interface AbilityScores {
-    Strength: AbilityScore;
-    Dexterity: AbilityScore;
-    Constitution: AbilityScore;
-    Intelligence: AbilityScore;
-    Wisdom: AbilityScore;
-    Charisma: AbilityScore;
-    Modifiers: Array<Modifer>;
+    strength: AbilityScore;
+    dexterity: AbilityScore;
+    constitution: AbilityScore;
+    intelligence: AbilityScore;
+    wisdom: AbilityScore;
+    charisma: AbilityScore;
+    modifiers: Array<Modifer>;
 }
 
 export interface Skill {
-    Name: string;
-    Ability: string;
-    IsClassSkill: boolean;
-    TotalModValue: number;
-    AbilityMod: number;
-    Ranks: number;
-    MiscMod: number;
+    name: string;
+    ability: string;
+    isClassSkill: boolean;
+    totalModValue: number;
+    abilityMod: number;
+    ranks: number;
+    miscMod: number;
 }
 
 export interface Skills{
-    SkillsList: Array<Skill>;
-    Modifiers: Array<Modifer>;
+    skillsList: Array<Skill>;
+    modifiers: Array<Modifer>;
 }
 
 export interface Save {
-    TotalValue: number;
-    BaseValue: number;
-    AbilityValue: number;
-    ModValue: number;
+    totalValue: number;
+    baseValue: number;
+    abilityValue: number;
+    modValue: number;
 }

@@ -4,9 +4,7 @@ import { PlayerCharacter } from "../models/player-character.model";
 
 @Injectable({providedIn: "root"})
 export class PlayerCharacterService {
-  constructor(private http: HttpClient){
-
-  }
+  constructor(private http: HttpClient){}
 
   public getNewCharacter() {
     return this.http.get<PlayerCharacter>('https://localhost:7092/api/playercharacter/new');

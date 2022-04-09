@@ -6,7 +6,7 @@ export interface PlayerCharacter {
     level: number;
     classLevels: any;
     hitPoints: Health;
-    AbilityScores: AbilityScores;
-    AC: ArmorClass;
-    Skills: Skills;
+    abilityScores: AbilityScores;
+    ac: ArmorClass;
+    skills: Skills;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlayerCharacter } from '../models/player-character.model';
 import { PlayerCharacterService } from '../services/player-character.service';
 
 @Component({
@@ -17,7 +18,11 @@ export class GeneralInfoComponent implements OnInit {
   ngOnInit(): void {
     this.characterService.getNewCharacter().subscribe(data => {
       console.log(data);
-      this.responseData = data}
+      this.responseData = data;
+      var pc:PlayerCharacter = data;//this.responseData;
+      Object.assign(pc,data)
+      console.log(pc.ac);
+    }
       );
 
   }
