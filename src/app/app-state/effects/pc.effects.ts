@@ -11,22 +11,22 @@ export class characterEffects {
 
   constructor(private actions$: Actions, private pcService: PlayerCharacterService) {}
 
-  private loadAllAttributes(response: PlayerCharacter){
-    pcActions.loadCharacterSuccess(response);
-    attributeActions.loadAbilityScores(response.abilityScores);
-    attributeActions.loadArmorClass(response.ac);
-    attributeActions.loadSavingThrows(response.savingThrows);
-    attributeActions.loadSkillRanks(response.skills);
-    attributeActions.loadHitPoints(response.hitPoints);
-    //Initialize for other parts (AC, Saves, etc.)
-  }
+  // private loadAllAttributes(response: PlayerCharacter){
+  //   pcActions.loadCharacterSuccess(response);
+  //   attributeActions.loadAbilityScores(response.abilityScores);
+  //   attributeActions.loadArmorClass({ac:response.ac});
+  //   attributeActions.loadSavingThrows(response.savingThrows);
+  //   attributeActions.loadSkillRanks(response.skills);
+  //   attributeActions.loadHitPoints(response.hitPoints);
+  //   //Initialize for other parts (AC, Saves, etc.)
+  // }
 
-  defaultCharacter$ = createEffect(() =>
+  loadDefaultCharacter$ = createEffect(() =>
     this.actions$.pipe(
       ofType(pcActions.loadNewCharacter),
       mergeMap(() =>
         this.pcService.getNewCharacter().pipe(
-          map((response) => this.loadAllAttributes(response)),
+          map((response) => pcActions.loadCharacterSuccess(response)),
           catchError((error: any) => of(pcActions.loadCharacterFailure(error)))
         )
     ))

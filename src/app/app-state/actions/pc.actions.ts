@@ -2,8 +2,7 @@ import { createAction, props } from "@ngrx/store";
 import { PlayerCharacter } from "src/app/models/player-character.model";
 
 export const loadNewCharacter = createAction(
-  '[PC] Loading New Character',
-  props<any>()
+  '[PC] Loading New Character'
 );
 
 export const loadExistingCharacter = createAction(
@@ -13,7 +12,7 @@ export const loadExistingCharacter = createAction(
 
 export const loadCharacterSuccess = createAction(
   '[PC] Load Character Success',
-  props<any>()
+  props<PlayerCharacter>()
 );
 
 export const loadCharacterFailure = createAction(

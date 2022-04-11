@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { PlayerCharacter } from "../models/player-character.model";
+import { PlayerCharacter } from "src/app/models/player-character.model";
 
 @Injectable({providedIn: "root"})
 export class PlayerCharacterService {

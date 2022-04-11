@@ -3,12 +3,12 @@ import { AbilityScores, ArmorClass, Health, SavingThrows, Skills } from "src/app
 
 export const loadAbilityScores = createAction(
     '[Attributes] Loading Ability Scores',
-    props<{scores:AbilityScores}>()
+    props<AbilityScores>()
   );
 
 export const loadArmorClass = createAction(
     '[Attributes] Loading Armor Class',
-    props<{ac:ArmorClass}>()
+    props<{ac?:ArmorClass}>()
   );
 
   export const loadSavingThrows = createAction(
