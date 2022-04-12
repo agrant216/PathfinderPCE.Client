@@ -40,13 +40,24 @@ export interface AbilityScore {
     readonly modValue: number;
 }
 
+interface Abilities {
+  [index: string]: AbilityScore;
+  strength: AbilityScore;
+  dexterity: AbilityScore;
+  constitution: AbilityScore;
+  intelligence: AbilityScore;
+  wisdom: AbilityScore;
+  charisma: AbilityScore;
+}
+
 export interface AbilityScores {
-    strength: AbilityScore;
-    dexterity: AbilityScore;
-    constitution: AbilityScore;
-    intelligence: AbilityScore;
-    wisdom: AbilityScore;
-    charisma: AbilityScore;
+    abilities: Abilities;
+    // strength: AbilityScore;
+    // dexterity: AbilityScore;
+    // constitution: AbilityScore;
+    // intelligence: AbilityScore;
+    // wisdom: AbilityScore;
+    // charisma: AbilityScore;
     modifiers: Array<Modifer>;
 }
 
