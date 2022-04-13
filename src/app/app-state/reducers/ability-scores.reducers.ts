@@ -4,13 +4,7 @@ import { PlayerCharacter } from "src/app/models/player-character.model";
 import { loadCharacterSuccess } from "../actions/pc.actions";
 
 export const initialState: AbilityScores = {
-  // strength: {baseValue: 0, tempValue: 0, modValue: 0},
-  // dexterity: {baseValue: 0, tempValue: 0, modValue: 0},
-  // constitution: {baseValue: 0, tempValue: 0, modValue: 0},
-  // intelligence: {baseValue: 0, tempValue: 0, modValue: 0},
-  // wisdom: {baseValue: 0, tempValue: 0, modValue: 0},
-  // charisma: {baseValue: 0, tempValue: 0, modValue: 0},
-  modifiers: [],
+  modifiers: {modifierList:[], modifiersBySubtype:{}},
   abilities: {
     "strength": {baseValue: 0, tempValue: 0, modValue: 0},
     "dexterity": {baseValue: 0, tempValue: 0, modValue: 0},

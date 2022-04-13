@@ -1,11 +1,15 @@
-export interface IModifer {
-    Name: String;
-    Type: String;
-    SubType: String;
-    Mod: Number;
+export interface IModifier {
+    Name: string;
+    Type: string;
+    SubType: string;
+    Mod: number;
 }
 
-export class Modifer implements IModifer{
+export interface IModifierBySubtype{
+  [index: string] : IModifier;
+}
+
+export class Modifer implements IModifier{
     constructor(name:string, type:string, subtype:string, modvalue:number){
         this.Name = name;
         this.Type = type;
@@ -13,8 +17,13 @@ export class Modifer implements IModifer{
         this.Mod = modvalue;
     }
 
-    Name: String;
-    Type: String;
-    SubType: String;
-    Mod: Number;
+    Name: string;
+    Type: string;
+    SubType: string;
+    Mod: number;
+}
+
+export class Modifiers {
+  modifiersBySubtype:IModifierBySubtype = {};
+  modifierList:Array<IModifier> = [];
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { AppState } from './app-state';
 import * as pcActions from './app-state/actions/pc.actions'
 
 @Component({
@@ -10,7 +11,7 @@ import * as pcActions from './app-state/actions/pc.actions'
 export class AppComponent {
   title = 'PathfinderPCE.Client';
 
-  constructor(private readonly store: Store){
+  constructor(private readonly store: Store<AppState>){
     this.store.dispatch(pcActions.loadNewCharacter())
   }
 }

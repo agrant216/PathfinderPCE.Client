@@ -1,4 +1,4 @@
-import { Modifer } from "./modifier.model";
+import { Modifer, Modifiers } from "./modifier.model";
 
 
 export interface ArmorClass {
@@ -38,9 +38,10 @@ export interface AbilityScore {
     baseValue: number;
     tempValue: number;
     readonly modValue: number;
+    //TODO: remove tempValue and ModValue since they are only used on the frontend
 }
 
-interface Abilities {
+export interface Abilities {
   [index: string]: AbilityScore;
   strength: AbilityScore;
   dexterity: AbilityScore;
@@ -58,7 +59,7 @@ export interface AbilityScores {
     // intelligence: AbilityScore;
     // wisdom: AbilityScore;
     // charisma: AbilityScore;
-    modifiers: Array<Modifer>;
+    modifiers: Modifiers;
 }
 
 export interface Skill {
