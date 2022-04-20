@@ -10,7 +10,7 @@ export interface AppState {
   armorClass: ArmorClass;
 }
 
-export const selectAbilityScores = (state:AppState) => state.abilityScores;
+export const selectAbilityScores = (state:AppState) => {console.log(state.abilityScores); return state.abilityScores;}
 //export const selectAbilityScores = createFeatureSelector<AppState,AbilityScores>('abilityScores');
 export const selectArmorClass = createFeatureSelector<ArmorClass>('armorClass');
 

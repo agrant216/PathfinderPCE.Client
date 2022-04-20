@@ -1,4 +1,3 @@
-<p>ability-scores works!</p>
 <table>
   <thead>
     <th colspan="2">Ability</th>
@@ -6,13 +5,19 @@
     <th>Temp. Score</th>
     <th>Modifier</th>
   </thead>
-  <tr *ngFor="">
-
+  <tr *ngFor="let ability of state.modifiedAbilityScores">
+    <td>{{ability.short}}</td>
+    <td>{{ability.name}}</td>
+    <td *ngIf="!editable">{{ability.baseValue}}</td><td *ngIf="editable"><input type="number" [(ngModel)]="editedScores[ability.name]" [value]="ability.baseValue"/></td>
+    <td>{{ability.tempValue}}</td>
+    <td>{{ability.modValue}}</td>
   </tr>
 </table>
+<button (click)="setEditMode()">test</button>
+<button *ngIf="editable" (click)="onSaveClick()">Save</button>
 
 <table>
-  <thead>
+  <thead>)
     <th colspan="2">Ability</th>
     <th>Base Score</th>
     <th>Temp. Score</th>
