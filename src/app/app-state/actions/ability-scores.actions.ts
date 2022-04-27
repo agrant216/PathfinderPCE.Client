@@ -8,6 +8,11 @@ export const setScore = createAction(
 );
 
 export const updateAllScores = createAction(
-    '[Ability Score] Updating Ability Scores',
+    '[Ability Score] Updating All Ability Scores',
     props<Dictionary<number>>()
-)
+);
+
+export const updateOneScore = createAction(
+    '[Ability Score] Updating Ability Score',
+    props<{name:string, value:number}>()
+);

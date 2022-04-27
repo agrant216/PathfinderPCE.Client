@@ -10,8 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { characterEffects } from './app-state/effects/pc.effects';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './app-state';
+import { metaReducers, reducers } from './app-state';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     BrowserModule,
     FormsModule,
+    TableModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers,{metaReducers}),
     StoreDevtoolsModule.instrument({maxAge: 5}),
     EffectsModule.forRoot([characterEffects])
 

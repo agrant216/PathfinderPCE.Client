@@ -1,3 +1,37 @@
+<div class="card">
+  <p-table [value]="this.state.modifiedAbilityScores" styleClass="p-datatable-sm" dataKey="id" responsiveLayout="scroll">
+      <ng-template pTemplate="caption">
+        Ability Scores
+      </ng-template>
+      <ng-template pTemplate="header">
+          <tr>
+            <th colspan="2">Ability</th>
+            <th>Base Score</th>
+            <th>Temp. Score</th>
+            <th>Modifier</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-ability>
+          <tr>
+              <td>{{ability.short}}</td>
+              <td>{{ability.name}}</td>
+              <td pEditableColumn>
+                  <p-cellEditor>
+                      <ng-template pTemplate="input">
+                          <input pInputText type="number" [(ngModel)]="editedScores[ability.name]" (blur)="onCellEdit(ability.name)">
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                          {{ability.baseValue}}
+                      </ng-template>
+                  </p-cellEditor>
+              </td>
+              <td>{{ability.tempValue}}</td>
+              <td>{{ability.modValue}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>
+
 <table>
   <thead>
     <th colspan="2">Ability</th>
@@ -16,53 +50,3 @@
 <button (click)="setEditMode()">test</button>
 <button *ngIf="editable" (click)="onSaveClick()">Save</button>
 
-<table>
-  <thead>)
-    <th colspan="2">Ability</th>
-    <th>Base Score</th>
-    <th>Temp. Score</th>
-    <th>Modifier</th>
-  </thead>
-  <tr>
-    <td>STR</td>
-    <td>Strength</td>
-    <td>10</td>
-    <td>12</td>
-    <td>+1</td>
-  </tr>
-  <tr>
-    <td>DEX</td>
-    <td>Dexterity</td>
-    <td>10</td>
-    <td>12</td>
-    <td>+1</td>
-  </tr>
-  <tr>
-    <td>CON</td>
-    <td>Constitution</td>
-    <td>10</td>
-    <td>12</td>
-    <td>+1</td>
-  </tr>
-  <tr>
-    <td>INT</td>
-    <td>Intelligence</td>
-    <td>10</td>
-    <td>12</td>
-    <td>+1</td>
-  </tr>
-  <tr>
-    <td>WIS</td>
-    <td>Wisdom</td>
-    <td>10</td>
-    <td>12</td>
-    <td>+1</td>
-  </tr>
-  <tr>
-    <td>CHA</td>
-    <td>Charisma</td>
-    <td>10</td>
-    <td>12</td>
-    <td>+1</td>
-  </tr>
-</table>
