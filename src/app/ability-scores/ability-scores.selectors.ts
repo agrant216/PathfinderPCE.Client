@@ -37,14 +37,6 @@ export class AbilityScoresSelectors {
       abilitiesArray.push({name: 'Charisma', short: 'CHA', ...this.createAbility('Charisma', scores, mods)});
       return abilitiesArray;
     }
-    // (scores, mods) => <AbilitiesArray>{
-    //   'strength' : {name: 'Strength', short: 'STR', ...this.createAbility('Strength', scores, mods)},
-    //   'dexterity': {name: 'Dexterity', short: 'DEX', ...this.createAbility('Dexterity', scores, mods)},
-    //   'constitution': {name: 'Constitution', short: 'CON', ...this.createAbility('Constitution', scores, mods)},
-    //   'intelligence': {name: 'Intelligence', short: 'INT', ...this.createAbility('Intelligence', scores, mods)},
-    //   'wisdom': {name: 'Wisdom', short: 'WIS', ...this.createAbility('Wisdom', scores, mods)},
-    //   'charisma': {name: 'Charisma', short: 'CHA', ...this.createAbility('Charisma', scores, mods)},
-    // }
   );
 
   public static state = createSelector(
@@ -56,7 +48,7 @@ export class AbilityScoresSelectors {
 
   private static createAbility(abilityName: string, scores: Abilities, mods:IModifierBySubtype){
     const base = scores[abilityName] ? scores[abilityName].baseValue : 0;
-    const mod: number= mods[abilityName] ? mods[abilityName].Mod : 0;
+    const mod: number= mods[abilityName] ? mods[abilityName].mod : 0;
     return <AbilityScore>{baseValue:base, tempValue:base + mod, modValue:((base + mod)-10)/2}
   }
 

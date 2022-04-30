@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
   }
   ngOnInit(): void {
     console.log("Dispatching API Call");
-    this.store.dispatch(pcActions.loadNewCharacter())
+    //this.store.dispatch(pcActions.loadNewCharacter())
   }
 
 }

@@ -1,0 +1,14 @@
+<p>modifiers works!</p>
+<form [formGroup]="modifierForm">
+    <label for="type">Modifier Type </label>
+    <input id="type" type="text" formControlName="type">
+
+    <label for="subtype">Modifier Subtype </label>
+    <input id="subtype" type="text" formControlName="subtype">
+
+    <label for="modType">Bonus Type </label>
+    <input id="modType" type="text" formControlName="modType" value="Untyped">
+
+    <label for="mod">Modifier Value</label>
+    <input id="mod" type="number" formControlName="mod" value="0">
+</form>

@@ -1,8 +1,9 @@
 export interface IModifier {
-    Name: string;
-    Type: string;
-    SubType: string;
-    Mod: number;
+    id: string;
+    name: string;
+    type: string;
+    subtype: string;
+    mod: number;
 }
 
 export interface IModifierBySubtype{
@@ -11,16 +12,18 @@ export interface IModifierBySubtype{
 
 export class Modifer implements IModifier{
     constructor(name:string, type:string, subtype:string, modvalue:number){
-        this.Name = name;
-        this.Type = type;
-        this.SubType = subtype;
-        this.Mod = modvalue;
+        this.id = type + '.' + subtype + '.' + name;
+        this.name = name;
+        this.type = type;
+        this.subtype = subtype;
+        this.mod = modvalue;
     }
-
-    Name: string;
-    Type: string;
-    SubType: string;
-    Mod: number;
+    
+    readonly id: string;
+    name: string;
+    type: string;
+    subtype: string;
+    mod: number;
 }
 
 export class Modifiers {
