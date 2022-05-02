@@ -1,14 +1,30 @@
 <p>modifiers works!</p>
-<form [formGroup]="modifierForm">
+<form [formGroup]="modifierForm" (ngSubmit)="onSubmit()">
     <label for="type">Modifier Type </label>
-    <input id="type" type="text" formControlName="type">
+    <select id="type"  formControlName="type" (change)="onTypeSelection()">
+        <option value="-1" disabled>Select modifier type</option>
+        <option *ngFor="let type of modifierTypes; let index=index;" [ngValue]="type">
+            {{ type }}
+          </option>
+    </select>
 
     <label for="subtype">Modifier Subtype </label>
-    <input id="subtype" type="text" formControlName="subtype">
+    <!-- <input id="subtype" type="text" formControlName="subtype"> -->
+    <select id="subtype"  formControlName="subtype">
+        <option value="-1" disabled>Select modifier subtype</option>
+        <option *ngFor="let subtype of modifierSubtypes; let index=index;" [ngValue]="subtype">
+            {{ subtype }}
+          </option>
+    </select>
+
+    <label for="name">Modifier Name </label>
+    <input id="name" type="text" formControlName="name" >
+  
+    <label for="mod">Modifier Value</label>
+    <input id="mod" type="number" formControlName="mod">
 
     <label for="modType">Bonus Type </label>
     <input id="modType" type="text" formControlName="modType" value="Untyped">
 
-    <label for="mod">Modifier Value</label>
-    <input id="mod" type="number" formControlName="mod" value="0">
+    <button type="submit"></button>
 </form>

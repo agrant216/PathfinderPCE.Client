@@ -1,5 +1,5 @@
 import { NgIterable } from "@angular/core";
-import { Modifer, Modifiers } from "./modifier.model";
+import { Modifier, Modifiers } from "./modifier.model";
 
 
 export interface ArmorClass {
@@ -12,7 +12,7 @@ export interface ArmorClass {
     dodgeBonus: number;
     deflectionBonus: number;
     miscBonus: number;
-    modifiers: Array<Modifer>;
+    modifiers: Array<Modifier>;
 }
 
 export interface Health {
@@ -32,7 +32,7 @@ export interface SavingThrows {
     fortitude: Save;
     reflex: Save;
     will: Save;
-    modifiers: Array<Modifer>
+    modifiers: Array<Modifier>
 }
 
 export interface AbilityScore {
@@ -75,7 +75,7 @@ export interface Skill {
 
 export interface Skills{
     skillsList: Array<Skill>;
-    modifiers: Array<Modifer>;
+    modifiers: Array<Modifier>;
 }
 
 export interface Save {

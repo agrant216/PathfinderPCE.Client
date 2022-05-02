@@ -10,7 +10,7 @@ export interface IModifierBySubtype{
   [index: string] : IModifier;
 }
 
-export class Modifer implements IModifier{
+export class Modifier implements IModifier{
     constructor(name:string, type:string, subtype:string, modvalue:number){
         this.id = type + '.' + subtype + '.' + name;
         this.name = name;
@@ -18,7 +18,7 @@ export class Modifer implements IModifier{
         this.subtype = subtype;
         this.mod = modvalue;
     }
-    
+
     readonly id: string;
     name: string;
     type: string;

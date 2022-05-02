@@ -1,11 +1,24 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
-import { Modifer } from "src/app/models/modifier.model";
+import { Action, createReducer, on } from "@ngrx/store";
+import { Modifier } from "src/app/models/modifier.model";
+import { addModifier } from "../actions/modifiers.actions";
 
-interface ModifierState extends EntityState<Modifer> {}
+interface ModifierState extends EntityState<Modifier> {}
 
-export const adapter: EntityAdapter<Modifer> = createEntityAdapter<Modifer>({
+export const adapter: EntityAdapter<Modifier> = createEntityAdapter<Modifier>({
     selectId: modifier => modifier.id,
     sortComparer: (a,b) => a.id.localeCompare(b.id)
 });
 
 export const initialState: ModifierState = adapter.getInitialState({});
+
+const modifierReducer = createReducer(
+    initialState,
+    on(addModifier, (state, {mod}) => {
+        return adapter.addOne(mod, state);
+    })
+);
+
+export function reducer(state: ModifierState | undefined, action: Action):any {
+    return modifierReducer(state, action);
+  }
