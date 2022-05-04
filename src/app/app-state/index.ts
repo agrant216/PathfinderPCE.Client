@@ -15,6 +15,7 @@ export interface AppState {
 }
 
 export const selectAbilityScores = (state:AppState) => {console.log(state.abilityScores); return state.abilityScores;}
+export const selectModifiers = (state: AppState) => state.modifiers;
 export const selectArmorClass = createFeatureSelector<ArmorClass>('armorClass');
 
 export const reducers: ActionReducerMap<AppState> = {

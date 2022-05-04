@@ -12,6 +12,10 @@ export const adapter: EntityAdapter<Modifier> = createEntityAdapter<Modifier>({
 
 export const initialState: ModifierState = adapter.getInitialState({});
 
+const {selectIds, selectEntities, selectAll, selectTotal} = adapter.getSelectors();
+
+export const selectAllModifiers = selectAll;
+
 const modifierReducer = createReducer(
     initialState,
     on(addModifier, (state, {mod}) => {

@@ -1,8 +1,8 @@
 import { createSelector } from "@ngrx/store";
-import { map } from "rxjs";
-import { AppState, selectAbilityScores } from "../app-state";
-import { Abilities, AbilityScore, AbilityScores } from "../models/core-stats.model";
-import { IModifierBySubtype } from "../models/modifier.model";
+import { selectAbilityScores } from "../app-state";
+import { Abilities, AbilityScore } from "../models/core-stats.model";
+import { ModifierSelectors } from "../modifiers/modifiers.selectors";
+import { dataHelper } from "../shared/static-data";
 
 export interface AbilitiesArray{
   [index: string]: {name: string, short: string } & AbilityScore;
@@ -14,27 +14,28 @@ export interface AbilityScoreState {
 
 export class AbilityScoresSelectors {
 
+  private static displayAbilities = [
+    {name: 'Strength', short: 'STR'},{name: 'Dexterity', short: 'DEX'},{name: 'Constitution', short: 'CON'},
+    {name: 'Intelligence', short: 'INT'},{name: 'Wisdom', short: 'WIS'},{name: 'Charisma', short: 'CHA'}
+  ];
+
   private static selectScores = createSelector(
     selectAbilityScores,
     (abilityScores) => abilityScores.abilities
   );
 
-  private static selectabilityModifiers = createSelector(
-    selectAbilityScores,
-    (scores) => scores.modifiers.modifiersBySubtype
+  private static selectReducedModifiers = createSelector(
+    ModifierSelectors.selectAttributeModifiers,
+    attributeMods => dataHelper.groupBySubtype(attributeMods)
   );
 
   private static selectModifiedAbilityScores = createSelector(
     this.selectScores,
-    this.selectabilityModifiers,
+    this.selectReducedModifiers,
     (scores, mods) => {
       let abilitiesArray: Array<{name: string, short: string } & AbilityScore> = [];
-      abilitiesArray.push({name: 'Strength', short: 'STR', ...this.createAbility('Strength', scores, mods)});
-      abilitiesArray.push({name: 'Dexterity', short: 'DEX', ...this.createAbility('Dexterity', scores, mods)});
-      abilitiesArray.push({name: 'Constitution', short: 'CON', ...this.createAbility('Constitution', scores, mods)});
-      abilitiesArray.push({name: 'Intelligence', short: 'INT', ...this.createAbility('Intelligence', scores, mods)});
-      abilitiesArray.push({name: 'Wisdom', short: 'WIS', ...this.createAbility('Wisdom', scores, mods)});
-      abilitiesArray.push({name: 'Charisma', short: 'CHA', ...this.createAbility('Charisma', scores, mods)});
+      this.displayAbilities.forEach(ability => abilitiesArray.push(
+        {name: ability.name, short: ability.short, ...this.createAbility(ability.name, scores, mods[ability.name]?.totalMod ?? 0)}))
       return abilitiesArray;
     }
   );
@@ -46,10 +47,9 @@ export class AbilityScoresSelectors {
     }
   );
 
-  private static createAbility(abilityName: string, scores: Abilities, mods:IModifierBySubtype){
+  private static createAbility(abilityName: string, scores: Abilities, mods:number){
     const base = scores[abilityName] ? scores[abilityName].baseValue : 0;
-    const mod: number= mods[abilityName] ? mods[abilityName].mod : 0;
-    return <AbilityScore>{baseValue:base, tempValue:base + mod, modValue:((base + mod)-10)/2}
+    return <AbilityScore>{baseValue:base, tempValue:base + mods, modValue:((base + mods)-10)/2}
   }
 
 }
