@@ -14,13 +14,15 @@ import { metaReducers, reducers } from './app-state';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {TableModule} from 'primeng/table';
 import { ModifiersComponent } from './modifiers/modifiers.component';
+import { ArmorClassComponent } from './armor-class/armor-class.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GeneralInfoComponent,
     AbilityScoresComponent,
-    ModifiersComponent
+    ModifiersComponent,
+    ArmorClassComponent
   ],
   imports: [
     BrowserModule,

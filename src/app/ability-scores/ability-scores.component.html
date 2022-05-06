@@ -26,27 +26,9 @@
                   </p-cellEditor>
               </td>
               <td>{{ability.tempValue}}</td>
-              <td>{{ability.modValue}}</td>
+              <td><span [innerText]="getModPrefix(ability.modValue)"></span>{{ability.modValue}}</td>
           </tr>
       </ng-template>
   </p-table>
 </div>
-
-<table>
-  <thead>
-    <th colspan="2">Ability</th>
-    <th>Base Score</th>
-    <th>Temp. Score</th>
-    <th>Modifier</th>
-  </thead>
-  <tr *ngFor="let ability of state.modifiedAbilityScores">
-    <td>{{ability.short}}</td>
-    <td>{{ability.name}}</td>
-    <td *ngIf="!editable">{{ability.baseValue}}</td><td *ngIf="editable"><input type="number" [(ngModel)]="editedScores[ability.name]" [value]="ability.baseValue"/></td>
-    <td>{{ability.tempValue}}</td>
-    <td>{{ability.modValue}}</td>
-  </tr>
-</table>
-<button (click)="setEditMode()">test</button>
-<button *ngIf="editable" (click)="onSaveClick()">Save</button>
 

@@ -49,7 +49,7 @@ export class AbilityScoresSelectors {
 
   private static createAbility(abilityName: string, scores: Abilities, mods:number){
     const base = scores[abilityName] ? scores[abilityName].baseValue : 0;
-    return <AbilityScore>{baseValue:base, tempValue:base + mods, modValue:((base + mods)-10)/2}
+    return <AbilityScore>{baseValue:base, tempValue:base + mods, modValue:Math.floor(((base + mods)-10)/2)}
   }
 
 }

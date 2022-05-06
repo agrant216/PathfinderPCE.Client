@@ -1,6 +1,3 @@
-import { NgIterable } from "@angular/core";
-import { Modifier, Modifiers } from "./modifier.model";
-
 
 export interface ArmorClass {
     base: number;
@@ -12,7 +9,6 @@ export interface ArmorClass {
     dodgeBonus: number;
     deflectionBonus: number;
     miscBonus: number;
-    modifiers: Array<Modifier>;
 }
 
 export interface Health {
@@ -32,14 +28,12 @@ export interface SavingThrows {
     fortitude: Save;
     reflex: Save;
     will: Save;
-    modifiers: Array<Modifier>
 }
 
 export interface AbilityScore {
     baseValue: number;
     tempValue: number;
     readonly modValue: number;
-    //TODO: remove tempValue and ModValue since they are only used on the frontend
 }
 
 export interface Abilities {
@@ -54,13 +48,6 @@ export interface Abilities {
 
 export interface AbilityScores {
     abilities: Abilities;
-    // strength: AbilityScore;
-    // dexterity: AbilityScore;
-    // constitution: AbilityScore;
-    // intelligence: AbilityScore;
-    // wisdom: AbilityScore;
-    // charisma: AbilityScore;
-    modifiers: Modifiers;
 }
 
 export interface Skill {
@@ -71,11 +58,6 @@ export interface Skill {
     abilityMod: number;
     ranks: number;
     miscMod: number;
-}
-
-export interface Skills{
-    skillsList: Array<Skill>;
-    modifiers: Array<Modifier>;
 }
 
 export interface Save {

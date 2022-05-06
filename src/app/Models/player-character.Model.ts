@@ -1,4 +1,4 @@
-import { AbilityScores, ArmorClass, Health, SavingThrows, Skills } from "./core-stats.model";
+import { AbilityScores, ArmorClass, Health, SavingThrows, Skill } from "./core-stats.model";
 
 export interface PlayerCharacter {
     id: string;
@@ -8,6 +8,6 @@ export interface PlayerCharacter {
     hitPoints?: Health;
     abilityScores: AbilityScores;
     ac: ArmorClass;
-    skills?: Skills;
+    skills?: Array<Skill>;
     savingThrows?: SavingThrows;
 }

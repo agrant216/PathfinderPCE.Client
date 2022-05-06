@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { AbilityScores, ArmorClass, Health, SavingThrows, Skills } from "src/app/models/core-stats.model";
+import { AbilityScores, ArmorClass, Health, SavingThrows, Skill } from "src/app/models/core-stats.model";
 
 export const loadAbilityScores = createAction(
     '[Attributes] Loading Ability Scores',
@@ -18,7 +18,7 @@ export const loadArmorClass = createAction(
 
   export const loadSkillRanks = createAction(
     '[Attributes] Loading Skill Ranks',
-    props<{skills:Skills}>()
+    props<{skills:Array<Skill>}>()
   );
 
   export const loadHitPoints = createAction(

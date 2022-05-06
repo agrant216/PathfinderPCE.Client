@@ -13,7 +13,6 @@ export const initialState: ArmorClass = {
   dodgeBonus: 0,
   deflectionBonus: 0,
   miscBonus: 0,
-  modifiers: []
 }
 
 const armorClassReducer = createReducer(

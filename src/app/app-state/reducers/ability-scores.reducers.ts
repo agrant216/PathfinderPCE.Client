@@ -5,7 +5,6 @@ import { updateAllScores, updateOneScore } from "../actions/ability-scores.actio
 import { loadCharacterSuccess } from "../actions/pc.actions";
 
 export const initialState: AbilityScores = {
-  modifiers: {modifierList:[], modifiersBySubtype:{}},
   abilities: {
     "strength": {baseValue: 0, tempValue: 0, modValue: 0},
     "dexterity": {baseValue: 0, tempValue: 0, modValue: 0},

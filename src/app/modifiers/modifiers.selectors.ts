@@ -1,10 +1,11 @@
 import { createSelector } from "@ngrx/store";
 import { selectModifiers } from "../app-state";
 import { selectAllModifiers } from "../app-state/reducers/modifiers.reducers";
+import { Modifier } from "../models/modifier.model";
 
 
 export interface ModifierState {
-
+    modifierList: Array<Modifier>
 }
 
 export class ModifierSelectors {
@@ -18,4 +19,11 @@ export class ModifierSelectors {
         ModifierSelectors.selectEntityModifiers,
         (entities) => entities.filter(mods => mods.type === 'Attribute')
     );
+
+    public static state = createSelector(
+        this.selectEntityModifiers,
+        (modifierList)=> <ModifierState>{
+            modifierList
+        }
+    )
 }

@@ -6,6 +6,7 @@ import { AppState } from '../app-state';
 import { addModifier } from '../app-state/actions/modifiers.actions';
 import { Modifier } from '../models/modifier.model';
 import { attributeTypes } from '../shared/static-data';
+import { ModifierSelectors, ModifierState } from './modifiers.selectors';
 
 @Component({
   selector: 'pce-modifiers',
@@ -13,7 +14,7 @@ import { attributeTypes } from '../shared/static-data';
   styleUrls: ['./modifiers.component.scss']
 })
 export class ModifiersComponent implements OnInit {
-
+  state!: ModifierState;
   modifierTypes: Array<string> = ['Attribute', 'Armor Class'];
   modifierSubtypes: Array<string> = [];
   subtypeArrays: Dictionary<Array<string>> = {};
@@ -30,6 +31,9 @@ export class ModifiersComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeSubtypeArray();
+    this.store.select(ModifierSelectors.state).subscribe((vm) => {
+      this.state = vm;
+    });
   }
 
   onSubmit(){

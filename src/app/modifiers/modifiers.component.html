@@ -1,4 +1,3 @@
-<p>modifiers works!</p>
 <form [formGroup]="modifierForm" (ngSubmit)="onSubmit()">
     <label for="type">Modifier Type </label>
     <select id="type"  formControlName="type" (change)="onTypeSelection()">
@@ -7,9 +6,7 @@
             {{ type }}
           </option>
     </select>
-
     <label for="subtype">Modifier Subtype </label>
-    <!-- <input id="subtype" type="text" formControlName="subtype"> -->
     <select id="subtype"  formControlName="subtype">
         <option value="-1" disabled>Select modifier subtype</option>
         <option *ngFor="let subtype of modifierSubtypes; let index=index;" [ngValue]="subtype">
@@ -28,3 +25,6 @@
 
     <button type="submit"></button>
 </form>
+<ul>
+    <li *ngFor="let modifier of state.modifierList">{{modifier.id}}</li>
+</ul>
