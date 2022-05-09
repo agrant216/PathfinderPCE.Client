@@ -20,6 +20,11 @@ export class ModifierSelectors {
         (entities) => entities.filter(mods => mods.type === 'Attribute')
     );
 
+    public static selectArmorClassModifiers = createSelector(
+        ModifierSelectors.selectEntityModifiers,
+        entities => entities.filter(mods => mods.type === 'Armor Class')
+    )
+
     public static state = createSelector(
         this.selectEntityModifiers,
         (modifierList)=> <ModifierState>{

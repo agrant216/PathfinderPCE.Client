@@ -40,6 +40,11 @@ export class AbilityScoresSelectors {
     }
   );
 
+  public static selectModifiedAbility = (ability: string) => createSelector(
+    AbilityScoresSelectors.selectModifiedAbilityScores,
+    moddedScores => moddedScores.find(score => score.name.toLowerCase() === ability.toLowerCase())
+  );
+
   public static state = createSelector(
     this.selectModifiedAbilityScores,
     (modifiedAbilityScores) => <AbilityScoreState>{
