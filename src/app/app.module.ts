@@ -15,6 +15,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {TableModule} from 'primeng/table';
 import { ModifiersComponent } from './modifiers/modifiers.component';
 import { ArmorClassComponent } from './armor-class/armor-class.component';
+import { SavingThrowsComponent } from './saving-throws/saving-throws.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ArmorClassComponent } from './armor-class/armor-class.component';
     GeneralInfoComponent,
     AbilityScoresComponent,
     ModifiersComponent,
-    ArmorClassComponent
+    ArmorClassComponent,
+    SavingThrowsComponent
   ],
   imports: [
     BrowserModule,

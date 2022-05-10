@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../app-state';
 import { addModifier } from '../app-state/actions/modifiers.actions';
 import { Modifier } from '../models/modifier.model';
-import { attributeTypes } from '../shared/static-data';
+import { armorClassTypes, attributeTypes } from '../shared/static-data';
 import { ModifierSelectors, ModifierState } from './modifiers.selectors';
 
 @Component({
@@ -41,6 +41,7 @@ export class ModifiersComponent implements OnInit {
     if(this.modifierForm.valid) {
       this.store.dispatch(addModifier({mod: new Modifier(
         this.modifierForm.value.name,this.modifierForm.value.type,this.modifierForm.value.subtype,this.modifierForm.value.mod)}));
+      this.modifierForm.reset({type: -1, subtype: -1, name: '', modType: 'Untyped', mod: 0});
     }
   }
 
@@ -51,5 +52,6 @@ export class ModifiersComponent implements OnInit {
 
   initializeSubtypeArray() {
     this.subtypeArrays['Attribute'] = attributeTypes;
+    this.subtypeArrays['Armor Class'] = armorClassTypes;
   }
 }

@@ -17,11 +17,11 @@ export interface Health {
     nonLethal: number;
 }
 
-export interface Save {
-    totalValue: number;
-    baseValue: number;
-    abilityValue: number;
-    modValue: number;
+export class Save {
+    get totalValue(): number {return this.classValue + this.abilityValue + this.modValue};
+    classValue: number = 0;
+    abilityValue: number = 0;
+    modValue: number = 0;
 }
 
 export interface SavingThrows {

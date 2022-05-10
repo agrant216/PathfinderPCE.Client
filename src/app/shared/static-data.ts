@@ -42,6 +42,7 @@ export const attributeTypes: Array<string> = ['Strength','Dexterity', 'Constitut
 
 export const armorClassTypes: Array<string> = ['Armor','Deflection', 'Dodge', 'Natural Armor', 'Shield', 'Size'];
 
+export const savingThrowTypes: Array<string> = ['Reflex', 'Fortitude', 'Will'];
 
 export class dataHelper {
 
