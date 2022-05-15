@@ -38,12 +38,12 @@ export interface AbilityScore {
 
 export interface Abilities {
   [index: string]: AbilityScore;
-  strength: AbilityScore;
-  dexterity: AbilityScore;
-  constitution: AbilityScore;
-  intelligence: AbilityScore;
-  wisdom: AbilityScore;
-  charisma: AbilityScore;
+  Strength: AbilityScore;
+  Dexterity: AbilityScore;
+  Constitution: AbilityScore;
+  Intelligence: AbilityScore;
+  Wisdom: AbilityScore;
+  Charisma: AbilityScore;
 }
 
 export interface AbilityScores {

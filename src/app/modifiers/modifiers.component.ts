@@ -4,7 +4,7 @@ import { Dictionary } from '@ngrx/entity';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app-state';
 import { addModifier } from '../app-state/actions/modifiers.actions';
-import { Modifier } from '../models/modifier.model';
+import { dynamicModifier, Modifier } from '../models/modifier.model';
 import { armorClassTypes, attributeTypes } from '../shared/static-data';
 import { ModifierSelectors, ModifierState } from './modifiers.selectors';
 
@@ -24,7 +24,7 @@ export class ModifiersComponent implements OnInit {
     subtype: ['-1'],
     name: [''],
     modType: ['Untyped'], 
-    mod: ['0'],
+    mod: [0],
   });
 
   constructor(private fb: FormBuilder, private store: Store<AppState>, private chageDetector: ChangeDetectorRef) { }
@@ -53,5 +53,12 @@ export class ModifiersComponent implements OnInit {
   initializeSubtypeArray() {
     this.subtypeArrays['Attribute'] = attributeTypes;
     this.subtypeArrays['Armor Class'] = armorClassTypes;
+  }
+
+  modifierTest() {
+    console.log("Modifier Test");
+    let mod = new dynamicModifier(this.modifierForm.value.name,this.modifierForm.value.type,this.modifierForm.value.subtype,this.modifierForm.value.mod);
+    mod.dynamicModType = 'level';
+    this.store.dispatch(addModifier({mod}));
   }
 }

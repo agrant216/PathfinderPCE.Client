@@ -37,8 +37,8 @@ export class ArmorClassSelectors {
 
     private static selectTotalAC = createSelector(
         ArmorClassSelectors.selectArmorClassWithModifiers,
-        ac => {console.log('AC', ac); return ac.base + ac.armorBonus + ac.shieldBonus + ac.statBonus + ac.sizeBonus + ac.naturalArmor + ac.dodgeBonus + 
-            ac.deflectionBonus + ac.miscBonus}
+        ac => ac.base + ac.armorBonus + ac.shieldBonus + ac.statBonus + ac.sizeBonus + ac.naturalArmor + ac.dodgeBonus + 
+            ac.deflectionBonus + ac.miscBonus
     );
 
     private static selectFlatFootedAC = createSelector(
