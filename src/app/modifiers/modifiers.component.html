@@ -1,4 +1,8 @@
 <form [formGroup]="modifierForm" (ngSubmit)="onSubmit()">
+    
+    <label for="name">Modifier Name </label>
+    <input id="name" type="text" formControlName="name" >
+    <br>
     <label for="type">Modifier Type </label>
     <select id="type"  formControlName="type" (change)="onTypeSelection()">
         <option value="-1" disabled>Select modifier type</option>
@@ -14,16 +18,15 @@
           </option>
     </select>
 
-    <label for="name">Modifier Name </label>
-    <input id="name" type="text" formControlName="name" >
+    
   
     <label for="mod">Modifier Value</label>
     <input id="mod" type="number" formControlName="mod">
 
     <label for="modType">Bonus Type </label>
-    <input id="modType" type="text" formControlName="modType" value="Untyped">
+    <input id="modType" type="text" formControlName="modType" value="Untyped">&nbsp;
 
-    <button type="submit"></button>
+    <button type="submit">Add Modifier</button>
 </form>
 
 <button (click)="modifierTest()">TEST DYNAMIC MODIFIER</button>
