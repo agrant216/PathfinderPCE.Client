@@ -1,32 +1,34 @@
 <form [formGroup]="modifierForm" (ngSubmit)="onSubmit()">
-    <label for="type">Modifier Type </label>
-    <select id="type"  formControlName="type" (change)="onTypeSelection()">
-        <option value="-1" disabled>Select modifier type</option>
-        <option *ngFor="let type of modifierTypes; let index=index;" [ngValue]="type">
-            {{ type }}
-          </option>
-    </select>
-    <label for="subtype">Modifier Subtype </label>
-    <select id="subtype"  formControlName="subtype">
-        <option value="-1" disabled>Select modifier subtype</option>
-        <option *ngFor="let subtype of modifierSubtypes; let index=index;" [ngValue]="subtype">
-            {{ subtype }}
-          </option>
-    </select>
-
+    
     <label for="name">Modifier Name </label>
-    <input id="name" type="text" formControlName="name" >
-  
+    <input id="name" type="text" formControlName="name" class="form-text">
+    <br>
+    <label for="type">Modifier Type </label>
+        <select class="custom-select" id="type"  formControlName="type" (change)="onTypeSelection()">
+            <option value="-1" disabled>Select modifier type</option>
+            <option *ngFor="let type of modifierTypes; let index=index;" [ngValue]="type">
+                {{ type }}
+            </option>
+        </select>
+    <label for="subtype">Modifier Subtype </label>
+        <select class="custom-select" id="subtype"  formControlName="subtype">
+            <option value="-1" disabled>Select modifier subtype</option>
+            <option *ngFor="let subtype of modifierSubtypes; let index=index;" [ngValue]="subtype">
+                {{ subtype }}
+            </option>
+        </select>
+
+      
     <label for="mod">Modifier Value</label>
-    <input id="mod" type="number" formControlName="mod">
+    <input class="form-text" id="mod" type="number" formControlName="mod">
 
     <label for="modType">Bonus Type </label>
-    <input id="modType" type="text" formControlName="modType" value="Untyped">
+    <input class="form-text" id="modType" type="text" formControlName="modType" value="Untyped">&nbsp;
 
-    <button type="submit"></button>
+    <button class="btn btn-outline-secondary" type="submit">Add Modifier</button>
 </form>
 
-<button (click)="modifierTest()">TEST DYNAMIC MODIFIER</button>
+<button class="btn btn-outline-secondary" (click)="modifierTest()">TEST APPLY DYNAMIC MODIFIER</button>
 <ul>
     <li *ngFor="let modifier of state.modifierList">{{modifier.id}}</li>
 </ul>
