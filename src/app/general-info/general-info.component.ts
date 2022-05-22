@@ -21,6 +21,7 @@ export class GeneralInfoComponent implements OnInit {
     "Chaotic Evil"
   ]
 
+
   constructor(pcService: PlayerCharacterService) {
     this.characterService = pcService;
   }
