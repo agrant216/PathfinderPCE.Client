@@ -16,6 +16,8 @@ import {TableModule} from 'primeng/table';
 import { ModifiersComponent } from './modifiers/modifiers.component';
 import { ArmorClassComponent } from './armor-class/armor-class.component';
 import { SavingThrowsComponent } from './saving-throws/saving-throws.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PlaceholderComponent } from './pages/placeholder/placeholder.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { SavingThrowsComponent } from './saving-throws/saving-throws.component';
     AbilityScoresComponent,
     ModifiersComponent,
     ArmorClassComponent,
-    SavingThrowsComponent
+    SavingThrowsComponent,
+    DashboardComponent,
+    PlaceholderComponent
   ],
   imports: [
     BrowserModule,
