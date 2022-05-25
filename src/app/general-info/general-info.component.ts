@@ -9,6 +9,18 @@ import { PlayerCharacterService } from '../services/player-character.service';
 export class GeneralInfoComponent implements OnInit {
   characterService: PlayerCharacterService;
   responseData:any;
+  alignmentList: Array<string> = [
+    "Lawful Good",
+    "Neutral Good",
+    "Chaotic Good",
+    "Lawful Neutral",
+    "True Neutral",
+    "Chaotic Neutral",
+    "Lawful Evil",
+    "Neutral Evil",
+    "Chaotic Evil"
+  ]
+
 
   constructor(pcService: PlayerCharacterService) {
     this.characterService = pcService;
