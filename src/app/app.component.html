@@ -1,19 +1,7 @@
-<div class="appdiv">
-    <general-info></general-info>
-</div>
-
-<div class="appdiv">
-    <pce-ability-scores></pce-ability-scores>
-</div>
-
-<div class="appdiv">
-    <pce-armor-class></pce-armor-class>
-</div>
-
-<div class="appdiv">
-    <pce-modifiers></pce-modifiers>
-</div>
-
-<div class="appdiv">
-    <router-outlet></router-outlet>
-</div>
+<nav>
+    <ul>
+      <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+      <li><a routerLink="/placeholder" routerLinkActive="active">Placeholder</a></li>
+    </ul>
+</nav>
+<router-outlet></router-outlet>

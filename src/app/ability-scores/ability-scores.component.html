@@ -1,34 +1,34 @@
 <div class="card">
-<p-table [value]="this.state.modifiedAbilityScores" styleClass="p-datatable-sm" dataKey="id" responsiveLayout="scroll">
-    <ng-template pTemplate="caption">
+  <p-table [value]="this.state.modifiedAbilityScores" styleClass="p-datatable-sm" dataKey="id" responsiveLayout="scroll">
+      <ng-template pTemplate="caption">
         Ability Scores
-    </ng-template>
-    <ng-template pTemplate="header">
-        <tr>
+      </ng-template>
+      <ng-template pTemplate="header">
+          <tr>
             <th colspan="2">Ability</th>
             <th>Base Score</th>
             <th>Temp. Score</th>
             <th>Modifier</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-ability>
-        <tr>
-            <td>{{ability.short}}</td>
-            <td>{{ability.name}}</td>
-            <td pEditableColumn>
-                <p-cellEditor>
-                    <ng-template pTemplate="input">
-                        <input pInputText type="number" [(ngModel)]="editedScores[ability.name]" (blur)="onCellEdit(ability.name)">
-                    </ng-template>
-                    <ng-template pTemplate="output">
-                        {{ability.baseValue}}
-                    </ng-template>
-                </p-cellEditor>
-            </td>
-            <td>{{ability.tempValue}}</td>
-            <td><span [innerText]="getModPrefix(ability.modValue)"></span>{{ability.modValue}}</td>
-        </tr>
-    </ng-template>
-</p-table>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-ability>
+          <tr>
+              <td>{{ability.short}}</td>
+              <td>{{ability.name}}</td>
+              <td pEditableColumn>
+                  <p-cellEditor>
+                      <ng-template pTemplate="input">
+                          <input pInputText type="number" [(ngModel)]="editedScores[ability.name]" (blur)="onCellEdit(ability.name)">
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                          {{ability.baseValue}}
+                      </ng-template>
+                  </p-cellEditor>
+              </td>
+              <td>{{ability.tempValue}}</td>
+              <td><span [innerText]="getModPrefix(ability.modValue)"></span>{{ability.modValue}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
 </div>
 
