@@ -17,7 +17,7 @@ export class ModifierSelectors {
     
     private static selectAllBasicModifiers = createSelector(
         ModifierSelectors.selectEntityModifiers,
-        entities => entities.filter(mods => mods.category === '')
+        entities => entities.filter(mods => mods.class === '')
     );
 
     public static selectAttributeModifiers = createSelector(

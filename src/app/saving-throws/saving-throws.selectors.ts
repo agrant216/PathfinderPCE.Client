@@ -49,10 +49,10 @@ export class SavingThrowSelector {
         SavingThrowSelector.selectReflexSave,
         SavingThrowSelector.selectFortitudeSave,
         SavingThrowSelector.selectWillSave,
-        (reflex, fort, will) => <SavingThrows>{
-            reflex: reflex,
-            fortitude: fort,
-            will: will
+        (reflex, fortitude, will) => <SavingThrows>{
+            reflex,
+            fortitude,
+            will
         }
       );
 

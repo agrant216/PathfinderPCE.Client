@@ -1,16 +1,4 @@
-export interface IModifier {
-    id: string;
-    name: string;
-    type: string;
-    subtype: string;
-    mod: number;
-}
-
-export interface IModifierBySubtype{
-  [index: string] : IModifier;
-}
-
-export class Modifier implements IModifier{
+export class Modifier {
     constructor(name:string, type:string, subtype:string, modvalue:number){
         this.id = type + '.' + subtype + '.' + name;
         this.name = name;
@@ -19,7 +7,7 @@ export class Modifier implements IModifier{
         this.mod = modvalue;
     }
     readonly id: string;
-    category: string = '';
+    class: string = 'basic';
     name: string;
     type: string;
     subtype: string;
@@ -30,11 +18,6 @@ export class dynamicModifier extends Modifier {
   constructor(name:string, type:string, subtype:string, modvalue:number){
     super(name, type, subtype, modvalue);
   }
-   override category = 'dynamic';
+   override class = 'dynamic';
    dynamicModType: string = ''; //level or Attribute
-}
-
-export class Modifiers {
-  modifiersBySubtype:IModifierBySubtype = {};
-  modifierList:Array<IModifier> = [];
 }

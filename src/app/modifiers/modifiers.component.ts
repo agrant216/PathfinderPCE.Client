@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../app-state';
 import { addModifier } from '../app-state/actions/modifiers.actions';
 import { dynamicModifier, Modifier } from '../models/modifier.model';
-import { armorClassTypes, attributeTypes } from '../shared/static-data';
+import { armorClassTypes, attributeTypes, savingThrowTypes } from '../shared/static-data';
 import { ModifierSelectors, ModifierState } from './modifiers.selectors';
 
 @Component({
@@ -15,7 +15,7 @@ import { ModifierSelectors, ModifierState } from './modifiers.selectors';
 })
 export class ModifiersComponent implements OnInit {
   state!: ModifierState;
-  modifierTypes: Array<string> = ['Attribute', 'Armor Class'];
+  modifierTypes: Array<string> = ['Attribute', 'Armor Class', 'Saving Throws'];
   modifierSubtypes: Array<string> = [];
   subtypeArrays: Dictionary<Array<string>> = {};
 
@@ -53,6 +53,7 @@ export class ModifiersComponent implements OnInit {
   initializeSubtypeArray() {
     this.subtypeArrays['Attribute'] = attributeTypes;
     this.subtypeArrays['Armor Class'] = armorClassTypes;
+    this.subtypeArrays['Saving Throws'] = savingThrowTypes;
   }
 
   modifierTest() {
